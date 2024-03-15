@@ -45,8 +45,10 @@ namespace MauiApp1
             if (user != null)
             {
                 if (IsPasswordMatch(PasswordEntry.Text, user.PasswordHash)){
-                    var myDatesPage = Handler.MauiContext.Services.GetService<MyDatesPage>();
-                    Navigation.PushAsync(myDatesPage);
+                   /* var myDatesPage = Handler.MauiContext.Services.GetService<MyDatesPage>();
+                    Navigation.PushAsync(myDatesPage);*/
+                    var myCupidInvite = Handler.MauiContext.Services.GetService<PlayCupidInvitePage>();
+                    Navigation.PushAsync(myCupidInvite);
                 }
                 else
                 {

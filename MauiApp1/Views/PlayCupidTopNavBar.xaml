@@ -13,21 +13,21 @@
                     BackgroundColor="#E8E8E8"
                     TextColor="#4A4A4A"
                     CornerRadius="20"
-                    WidthRequest="100"
+                    WidthRequest="110"
                     HeightRequest="40"
                     FontAttributes="Bold"/>
         <Button Text="Invite others"
                     BackgroundColor="#E8E8E8"
                     TextColor="#4A4A4A"
                     CornerRadius="20"
-                    WidthRequest="100"
+                    WidthRequest="110"
                     HeightRequest="40"
                     FontAttributes="Bold"/>
         <Button Text="Matched pairs"
                     BackgroundColor="#E8E8E8"
                     TextColor="#4A4A4A"
                     CornerRadius="20"
-                    WidthRequest="100"
+                    WidthRequest="110"
                     HeightRequest="40"
                     FontAttributes="Bold"/>
     </StackLayout>

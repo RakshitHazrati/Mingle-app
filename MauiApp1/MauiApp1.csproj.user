@@ -38,6 +38,9 @@
     <MauiXaml Update="Views\HomeBottomNavBar.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\InviteContacts.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\PlayCupidTopNavBar.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

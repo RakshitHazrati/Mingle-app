@@ -14,7 +14,7 @@ public class EmailService
         smtpClient = new SmtpClient("smtp.gmail.com")
         {
             Port = 587,
-            Credentials = new NetworkCredential("rakshithazrati@gmail.com", "tzypglevmlikckmu"),
+            Credentials = new NetworkCredential(),
             EnableSsl = true,
         };
         fromAddress = "rakshithazrati@gmail.com";

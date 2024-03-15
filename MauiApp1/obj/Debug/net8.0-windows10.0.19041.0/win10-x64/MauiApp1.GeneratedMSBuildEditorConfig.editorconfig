@@ -8,95 +8,101 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MauiApp1
-build_property.ProjectDir = D:\.NET MAUI\Mingle-App-Updated\Mingle-app\MauiApp1\
+build_property.ProjectDir = C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/App.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/AppShell.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/LogIn.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/LogIn.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.LogIn.xaml
 build_metadata.AdditionalFiles.TargetPath = LogIn.xaml
 build_metadata.AdditionalFiles.RelativePath = LogIn.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/MainPage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/MyDatesPage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/MyDatesPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.MyDatesPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MyDatesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MyDatesPage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/OtpPage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/OtpPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.OtpPage.xaml
 build_metadata.AdditionalFiles.TargetPath = OtpPage.xaml
 build_metadata.AdditionalFiles.RelativePath = OtpPage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/PlayCupidInvitePage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/PlayCupidInvitePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.PlayCupidInvitePage.xaml
 build_metadata.AdditionalFiles.TargetPath = PlayCupidInvitePage.xaml
 build_metadata.AdditionalFiles.RelativePath = PlayCupidInvitePage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/PlayCupidMembersPage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/PlayCupidMembersPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.PlayCupidMembersPage.xaml
 build_metadata.AdditionalFiles.TargetPath = PlayCupidMembersPage.xaml
 build_metadata.AdditionalFiles.RelativePath = PlayCupidMembersPage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/ProfilePage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/ProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.ProfilePage.xaml
 build_metadata.AdditionalFiles.TargetPath = ProfilePage.xaml
 build_metadata.AdditionalFiles.RelativePath = ProfilePage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/ReferralPage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/ReferralPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.ReferralPage.xaml
 build_metadata.AdditionalFiles.TargetPath = ReferralPage.xaml
 build_metadata.AdditionalFiles.RelativePath = ReferralPage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/Resources/Styles/Colors.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/Resources/Styles/Styles.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/SignUpPage.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/SignUpPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.SignUpPage.xaml
 build_metadata.AdditionalFiles.TargetPath = SignUpPage.xaml
 build_metadata.AdditionalFiles.RelativePath = SignUpPage.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/Views/HomeBottomNavBar.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/Views/HomeBottomNavBar.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Views.HomeBottomNavBar.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HomeBottomNavBar.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HomeBottomNavBar.xaml
 
-[D:/.NET MAUI/Mingle-App-Updated/Mingle-app/MauiApp1/Views/PlayCupidTopNavBar.xaml]
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/Views/InviteContacts.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Views.InviteContacts.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\InviteContacts.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\InviteContacts.xaml
+
+[C:/Users/KaayaTech/Desktop/projects/MingleJayanth/Mingle-app/MauiApp1/Views/PlayCupidTopNavBar.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Views.PlayCupidTopNavBar.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\PlayCupidTopNavBar.xaml

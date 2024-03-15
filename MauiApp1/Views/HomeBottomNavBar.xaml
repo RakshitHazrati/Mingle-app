@@ -6,7 +6,7 @@
     <Grid BackgroundColor="#f0f0f0"
           Padding="10"
           ColumnDefinitions="*,*,*"
-          VerticalOptions="End">
+          VerticalOptions="EndAndExpand">
         <StackLayout Grid.Column="0"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">

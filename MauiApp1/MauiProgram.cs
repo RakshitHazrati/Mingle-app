@@ -18,7 +18,7 @@ namespace MauiApp1
                 });
                 
 
-            builder.Services.AddSingleton<MongoDbContext>(new MongoDbContext("",""));
+            builder.Services.AddSingleton<MongoDbContext>(new MongoDbContext());
 
             builder.Services.AddTransient<LogIn>();
             builder.Services.AddTransient<SignUpPage>();

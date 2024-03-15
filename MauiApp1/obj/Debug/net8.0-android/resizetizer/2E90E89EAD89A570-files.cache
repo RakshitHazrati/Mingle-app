@@ -1,6 +1,9 @@
-﻿obj\Debug\net8.0-android\resizetizer\r\drawable\homeimg.jpeg
+﻿obj\Debug\net8.0-android\resizetizer\r\drawable\copy_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\homeimg.jpeg
 obj\Debug\net8.0-android\resizetizer\r\drawable\logo.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\logo2.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\notification_icon.png
+obj\Debug\net8.0-android\resizetizer\r\drawable\profile_placeholder.png
 obj\Debug\net8.0-android\resizetizer\r\drawable\verifyotpimg.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net8.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
