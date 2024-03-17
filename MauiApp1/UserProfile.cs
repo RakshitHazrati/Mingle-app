@@ -30,3 +30,14 @@ public class User
     public string PasswordHash { get; set; }
     public string JwtTocken { get; set; }
 }
+
+public class UserImages
+{
+    public ObjectId Id { get; set; }
+    public string JwtTocken { get; set; }
+    public string Image_1 { get; set; }
+    public string Image_2 { get; set; }
+    public string Image_3 { get; set; }
+    public string Image_4 { get; set; }
+    
+}

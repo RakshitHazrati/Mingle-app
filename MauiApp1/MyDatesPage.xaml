@@ -4,6 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+              xmlns:views="clr-namespace:MauiApp1.Views"
              x:Class="MauiApp1.MyDatesPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
@@ -28,6 +29,7 @@
                 <Image Source="logo.png" Aspect="AspectFill" />
             </Frame>
         </SwipeView>
+        <views:HomeBottomNavBar  />
     </StackLayout>
 
 </ContentPage>

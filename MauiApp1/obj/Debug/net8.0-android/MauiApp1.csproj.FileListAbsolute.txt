@@ -3175,3 +3175,6 @@ C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\
 C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\net8.0-android\resizetizer\r\drawable\notification_icon.png
 C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\net8.0-android\resizetizer\r\drawable\profile_placeholder.png
 C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\net8.0-android\resizetizer\r\drawable\copy_icon.png
+C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\net8.0-android\resizetizer\r\drawable\inboximg.png
+C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\net8.0-android\resizetizer\r\drawable\mydatezimg.png
+C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\obj\Debug\net8.0-android\resizetizer\r\drawable\playcupidimg.png

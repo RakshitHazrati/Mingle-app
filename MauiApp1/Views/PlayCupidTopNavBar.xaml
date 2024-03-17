@@ -10,26 +10,30 @@
                      Spacing="10"
                      Margin="10">
         <Button Text="Members"
+                    
                     BackgroundColor="#E8E8E8"
                     TextColor="#4A4A4A"
                     CornerRadius="20"
                     WidthRequest="110"
                     HeightRequest="40"
-                    FontAttributes="Bold"/>
+                    FontAttributes="Bold"
+                Clicked="OnMemberClicked"/>
         <Button Text="Invite others"
                     BackgroundColor="#E8E8E8"
                     TextColor="#4A4A4A"
                     CornerRadius="20"
                     WidthRequest="110"
                     HeightRequest="40"
-                    FontAttributes="Bold"/>
+                    FontAttributes="Bold"
+                Clicked="OnInviteClicked"/>
         <Button Text="Matched pairs"
                     BackgroundColor="#E8E8E8"
                     TextColor="#4A4A4A"
                     CornerRadius="20"
                     WidthRequest="110"
                     HeightRequest="40"
-                    FontAttributes="Bold"/>
+                    FontAttributes="Bold"
+                />
     </StackLayout>
 
 </ContentView>

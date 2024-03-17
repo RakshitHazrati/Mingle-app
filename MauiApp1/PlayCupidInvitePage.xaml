@@ -4,11 +4,12 @@
              xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:views="clr-namespace:MauiApp1.Views"
+             xmlns:local="clr-namespace:MauiApp1.Views"
              mc:Ignorable="d"
              x:Class="MauiApp1.PlayCupidInvitePage">
     
     <!-- Main Layout Container -->
-    <VerticalStackLayout BackgroundColor="Black" VerticalOptions="Fill">
+    <VerticalStackLayout  VerticalOptions="Fill">
 
         <!-- Top Bar Container -->
         <Grid 
@@ -45,7 +46,7 @@
         <views:PlayCupidTopNavBar />
 
         <!-- Container for the link and copy button -->
-        <Grid ColumnDefinitions="Auto, Auto" Margin="20,0,20,0">
+        <Grid ColumnDefinitions="Auto, Auto" Margin="20,0,0,0">
             
             <Entry Grid.Column="0" Text="https://www.example.com/lorem_ipsum" 
                    FontSize="15"  BackgroundColor="LightGray" 
@@ -70,91 +71,53 @@
             HorizontalOptions="Center"
                 Clicked="OnShareClicked"
              />
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition />
-                <RowDefinition Height="100" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <BoxView Color="Green" />
-            <Label Text="Row 0, Column 0"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-            <BoxView Grid.Column="1"
-                 Color="Blue" />
-            <Label Grid.Column="1"
-               Text="Row 0, Column 1"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-            <BoxView Grid.Row="1"
-                 Color="Teal" />
-            <Label Grid.Row="1"
-               Text="Row 1, Column 0"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-            <BoxView Grid.Row="1"
-                 Grid.Column="1"
-                 Color="Purple" />
-            <Label Grid.Row="1"
-               Grid.Column="1"
-               Text="Row1, Column 1"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-            <BoxView Grid.Row="2"
-                 Grid.ColumnSpan="2"
-                 Color="Red" />
-            <Label Grid.Row="2"
-               Grid.ColumnSpan="2"
-               Text="Row 2, Columns 0 and 1"
-               HorizontalOptions="Start"
-               VerticalOptions="End" />
-        </Grid>
+        
         <!--Add code to display all contacts and invite button-->
-        <ScrollView Margin="0,20,0,0">
+        <ScrollView >
             <VerticalStackLayout 
         x:Name="Friends">
-                <HorizontalStackLayout Margin="0,20,20,0">
-
-                    <Grid HorizontalOptions="Center"  >
-                        <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image
-                            Grid.Column="0"
-                            Source="profile_placeholder.png"
-                            HeightRequest="30"
-                            WidthRequest="30"
-                                Margin="30,0,30,0"
-                            HorizontalOptions="Start" />
-                        <Label
-                            
-                            Grid.Column="1"
-                            Text="Jayanth" 
-                            FontSize="15"  
-          
-                            HorizontalOptions="Start"
-                            VerticalOptions="CenterAndExpand"/>
-                        <Button 
-                            Grid.Column="2"
-                            Text="Invite"
-                                BackgroundColor="#8023EB"
-                                TextColor="White"
-                                CornerRadius="7"
-                                Margin="0,0,0,0"
-                                    WidthRequest="80"
-                                    HeightRequest="40"
-                                 />         
-                    </Grid>
-                   
-                </HorizontalStackLayout>
-                
                 <views:InviteContacts/>
+               
+                <!--
+                 <HorizontalStackLayout Margin="0,20,20,0">
+
+                         <Grid HorizontalOptions="Center"  >
+                             <Grid.ColumnDefinitions >
+                                 <ColumnDefinition Width="*" />
+                                 <ColumnDefinition Width="200" />
+                                 <ColumnDefinition Width="*" />
+                             </Grid.ColumnDefinitions>
+                             <Image
+                                 Grid.Column="0"
+                                 Source="profile_placeholder.png"
+                                 HeightRequest="30"
+                                 WidthRequest="30"
+                                     Margin="30,0,30,0"
+                                 HorizontalOptions="Start" />
+                             <Label
+             
+                                 Grid.Column="1"
+                                 Text="Jayanth" 
+                                 FontSize="15"  
+          
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="CenterAndExpand"/>
+                             <Button 
+                                 Grid.Column="2"
+                                 Text="Invite"
+                                     BackgroundColor="#8023EB"
+                                     TextColor="White"
+                                     CornerRadius="7"
+                                     Margin="0,0,0,0"
+                                         WidthRequest="80"
+                                         HeightRequest="40"
+                                      />         
+                         </Grid>
+    
+                     </HorizontalStackLayout>
+                                    -->
+               
+                
 
             </VerticalStackLayout>
 

@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.Views.HomeBottomNavBar">
+             x:Class="MauiApp1.Views.HomeBottomNavBar"
+           
+           >
    
     <Grid BackgroundColor="#f0f0f0"
           Padding="10"
           ColumnDefinitions="*,*,*"
-          VerticalOptions="EndAndExpand">
+          VerticalOptions="End">
+        
         <StackLayout Grid.Column="0"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-            <Image Source="mydatezimg.png" HeightRequest="30" />
+            
+            <Button ImageSource="mydatezimg.png" HeightRequest="20" WidthRequest="20" Clicked="OnClickMyDatez" BackgroundColor="Transparent"/>
             <Label Text="My Datez" TextColor="#6200EE" VerticalOptions="Center" HorizontalOptions="Center" />
+            
         </StackLayout>
         <StackLayout Grid.Column="1"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-            <Image Source="playcupidimg.png" HeightRequest="30" />
+            <Button ImageSource="playcupidimg.png" HeightRequest="20" WidthRequest="20" Clicked="OnClickPlayCupid" BackgroundColor="Transparent"/>
             <Label Text="Play Cupid" TextColor="#6200EE" VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout>
         <StackLayout Grid.Column="2"
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
-            <Image Source="inboximg.png" HeightRequest="30" />
+            <Button ImageSource="inboximg.png" HeightRequest="20"  WidthRequest="20" Clicked="OnClickInbox" BackgroundColor="Transparent"/>
             <Label Text="Inbox" TextColor="#6200EE" VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout>
     </Grid>

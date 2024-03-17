@@ -2,7 +2,6 @@ using Microsoft.Maui.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using System.Security.Cryptography;
-using System.Text;
 namespace MauiApp1
 {
     public partial class LogIn : ContentPage
@@ -45,10 +44,11 @@ namespace MauiApp1
             if (user != null)
             {
                 if (IsPasswordMatch(PasswordEntry.Text, user.PasswordHash)){
-                   /* var myDatesPage = Handler.MauiContext.Services.GetService<MyDatesPage>();
-                    Navigation.PushAsync(myDatesPage);*/
-                    var myCupidInvite = Handler.MauiContext.Services.GetService<PlayCupidInvitePage>();
-                    Navigation.PushAsync(myCupidInvite);
+                    UserJwtTocken.JwtTocken = user.JwtTocken;
+                    var myDatesPage = Handler.MauiContext.Services.GetService<MyDatesPage>();
+                    Navigation.PushAsync(myDatesPage);
+                    /*var myCupidInvite = Handler.MauiContext.Services.GetService<PlayCupidInvitePage>();
+                    Navigation.PushAsync(myCupidInvite);*/
                 }
                 else
                 {

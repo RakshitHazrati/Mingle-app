@@ -21,12 +21,14 @@
                    WidthRequest="30"
                    Margin="10"
                    VerticalOptions="Center" />
-            <Image Grid.Column="2"
-                   Source="profile_placeholder.png"
+            <Button Grid.Column="2"
+                   ImageSource="profile_placeholder.png"
                    HeightRequest="30"
                    WidthRequest="30"
                    Margin="10"
-                   VerticalOptions="Center" />
+                   VerticalOptions="Center"
+                    Clicked="OnClickProfile"
+                   />
         </Grid>
 
         <!-- Title and Subtitle -->

@@ -1,3 +1,5 @@
+using MauiApp1.Views;
+
 namespace MauiApp1;
 
 public partial class PlayCupidInvitePage : ContentPage
@@ -54,25 +56,26 @@ public partial class PlayCupidInvitePage : ContentPage
             await Sms.Default.ComposeAsync(message);
         }
     }
-    private async void OnStartLoadFriends()
+    private  void OnStartLoadFriends()
     {
-        StackLayout stackLayout = new StackLayout
-        {
-
-        };
-
+     
         //var t = ShareText("Hi Hello!");
-        IAsyncEnumerable<Contact> c = GetContactNames();
+        /*IAsyncEnumerable<Contact> c = GetContactNames();
         await foreach (Contact item in c)
         {
 
-            string inviteButtonXAML = $"<Button Text=\"{item.DisplayName}\" Margin=\"5\" />";
+            string inviteButtonXAML = $"<HorizontalStackLayout Margin=\"0,20,20,0\">                        <Grid HorizontalOptions=\"Center\"  >                           <Grid.ColumnDefinitions >                              <ColumnDefinition Width=\"*\" />\r\n                                 <ColumnDefinition Width=\"200\" />                             <ColumnDefinition Width=\"*\" />                            </Grid.ColumnDefinitions>                             <Image                                 Grid.Column=\"0\"                            Source=\"profile_placeholder.png\"                                 HeightRequest=\"30\"                                 WidthRequest=\"30\"                                    Margin=\"30,0,30,0\"                                 HorizontalOptions=\"Start\" />                            <Label                            Grid.Column=\"1\"                                Text=\"{item.DisplayName}\"                              FontSize=\"15\"                             HorizontalOptions=\"Start\"                            VerticalOptions=\"CenterAndExpand\"/>                   <Button                            Grid.Column=\"2\"                                 Text=\"Invite\"                                     BackgroundColor=\"#8023EB\"                                TextColor=\"White\"                                  CornerRadius=\"7\"                                     Margin=\"0,0,0,0\"                                         WidthRequest=\"80\"                                         HeightRequest=\"40\"                                      />                    </Grid>                    </HorizontalStackLayout>";
             Button inviteButton = new Button().LoadFromXaml(inviteButtonXAML);
             inviteButton.Clicked += async (sender, args) => await SendSMSAsync(item);
-            //Friends.Add(inviteButton);
+            Friends.Add(inviteButton);
 
-        }
-        
+        }*/
+
+
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
 
     }
 }
