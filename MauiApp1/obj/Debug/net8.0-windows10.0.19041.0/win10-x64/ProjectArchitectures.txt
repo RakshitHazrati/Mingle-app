@@ -1,1 +1,1 @@
-D:\.NET MAUI\MingleApp\MauiApp1\MauiApp1.csproj;x64
+C:\Users\KaayaTech\Desktop\projects\MingleJayanth\Mingle-app\MauiApp1\MauiApp1.csproj;x64
