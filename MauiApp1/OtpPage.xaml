@@ -2,36 +2,34 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.OtpPage"
-             Title="OtpPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
     
-    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
-        <Image Source="homeimg.jpeg" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="200"/>
-        <Label Text="Mingle" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="20" Margin="0,50,0,0"/>
-
-        <Label Text="Enter the OTP sent to your entered number" HorizontalOptions="CenterAndExpand" Margin="0,20,0,30"/>
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10,40,10,40">
+      
+        <Image Source="verifyotpimg.png" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="150"/>
+        <Label Text="Verify your email" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" FontSize="32" FontFamily="epilogue" FontAttributes="Bold" Margin="0,30,0,0"/>
+        <Label Text="Please enter the verification code we sent to your email address to complete the verification process." HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="30,20,30,70"/>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Frame WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" Padding="0" 
-                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                   CornerRadius="5" HasShadow="False">
-                <Entry x:Name="entry1" Keyboard="Numeric" MaxLength="1" TextColor="Black" BackgroundColor="LightGray" TextChanged="OnDigitEntered"/>
-            </Frame>
-            <Frame WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" Padding="0" 
-                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                   CornerRadius="5" HasShadow="False">
-                <Entry x:Name="entry2" Keyboard="Numeric" MaxLength="1" TextColor="Black" BackgroundColor="LightGray" TextChanged="OnDigitEntered"/>
-            </Frame>
-            <Frame WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" Padding="0" 
-                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                   CornerRadius="5" HasShadow="False">
-                <Entry x:Name="entry3" Keyboard="Numeric" MaxLength="1" TextColor="Black" BackgroundColor="LightGray" TextChanged="OnDigitEntered"/>
-            </Frame>
-            <Frame WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" Padding="0" 
-                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                   CornerRadius="5" HasShadow="False">
-                <Entry x:Name="entry4" Keyboard="Numeric" MaxLength="1" TextColor="Black" BackgroundColor="LightGray" TextChanged="OnDigitEntered"/>
-            </Frame>
+            <Border Stroke="Black" StrokeThickness="1"  HeightRequest="40" Margin="0,10,5,0">
+                <Entry x:Name="entry1" Keyboard="Numeric" MaxLength="1" TextColor="Black" TextChanged="OnDigitEntered" Margin="0,0,0,-8.5" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Border Stroke="Black" StrokeThickness="1"  HeightRequest="40" Margin="0,10,5,0">
+                <Entry x:Name="entry2" Keyboard="Numeric" MaxLength="1" TextColor="Black" TextChanged="OnDigitEntered" Margin="0,0,0,-8.5" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Border Stroke="Black" StrokeThickness="1"  HeightRequest="40" Margin="0,10,5,0">
+                <Entry x:Name="entry3" Keyboard="Numeric" MaxLength="1" TextColor="Black" TextChanged="OnDigitEntered" Margin="0,0,0,-8.5" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Border Stroke="Black" StrokeThickness="1"  HeightRequest="40" Margin="0,10,5,0">
+                <Entry x:Name="entry4" Keyboard="Numeric" MaxLength="1" TextColor="Black" TextChanged="OnDigitEntered" Margin="0,0,0,-8.5" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Border Stroke="Black" StrokeThickness="1"  HeightRequest="40" Margin="0,10,5,0">
+                <Entry x:Name="entry5" Keyboard="Numeric" MaxLength="1" TextColor="Black" TextChanged="OnDigitEntered" Margin="0,0,0,-8.5" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Border Stroke="Black" StrokeThickness="1"  HeightRequest="40" Margin="0,10,0,0">
+                <Entry x:Name="entry6" Keyboard="Numeric" MaxLength="1" TextColor="Black" TextChanged="entry6_TextChanged" Margin="0,0,0,-8.5" HorizontalTextAlignment="Center"/>
+            </Border>
+            
         </StackLayout>
 
         <Label Text="Resend OTP" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" TextColor="Blue" FontSize="Small" Margin="0,10,0,0">
@@ -40,6 +38,7 @@
             </Label.GestureRecognizers>
         </Label>
 
-        <Button Text="Enter" Clicked="OnEnterClicked" Margin="0,20,0,0"/>
+        <!--<Button Text="Enter" Clicked="OnEnterClicked" Margin="0,20,0,0"/>-->
+        
     </StackLayout>
 </ContentPage>

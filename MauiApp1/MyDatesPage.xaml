@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+              xmlns:views="clr-namespace:MauiApp1.Views"
+             x:Class="MauiApp1.MyDatesPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <StackLayout Padding="10" Spacing="10">
+
+        <Label Text="Your Matches" HorizontalTextAlignment="Start" Padding="10,10,0,0" FontSize="26" FontAttributes="Bold" FontFamily="epilogue" />
+        <Label Text="Find out who your friends think you should go on a date with" Padding="10,10,0,50" FontSize="14" Margin="0,0,80,0" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"/>
+
+        <!--<Image Source="logo.png" HeightRequest="400" HorizontalOptions="CenterAndExpand"/>-->
+        <SwipeView>
+            <SwipeView.LeftItems>
+                <SwipeItems Mode="Execute">
+                    <SwipeItem Text="Like" BackgroundColor="Green" Command="{Binding LikeCommand}" />
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            <SwipeView.RightItems>
+                <SwipeItems Mode="Execute">
+                    <SwipeItem Text="Dislike" BackgroundColor="Red" Command="{Binding DislikeCommand}" />
+                </SwipeItems>
+            </SwipeView.RightItems>
+            <Frame BackgroundColor="LightGray" HeightRequest="300" WidthRequest="300" CornerRadius="10">
+                <Image Source="logo.png" Aspect="AspectFill" />
+            </Frame>
+        </SwipeView>
+        <views:HomeBottomNavBar  />
+    </StackLayout>
+
+</ContentPage>

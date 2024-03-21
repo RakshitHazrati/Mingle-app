@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:MauiApp1.Views"
+             mc:Ignorable="d"
+             x:Class="MauiApp1.PlayCupidMembersPage">
+
+    <!-- Main Layout Container -->
+    <VerticalStackLayout BackgroundColor="#FFFFFF">
+
+        <!-- Top Bar Container -->
+        <Grid Padding="10,0,0,10"
+              ColumnDefinitions="*,Auto,Auto"
+              RowDefinitions="Auto">
+            <Label Text="HeartSync"></Label>
+            <Image Grid.Column="1"
+                   Source="notification_icon.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   Margin="10"
+                   VerticalOptions="Center" />
+            <Button Grid.Column="2"
+                   ImageSource="profile_placeholder.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   Margin="10"
+                   VerticalOptions="Center"
+                    Clicked="OnClickProfile"
+                   />
+        </Grid>
+
+        <!-- Title and Subtitle -->
+        <Label Text="Play Cupid"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Start"
+               Margin="30,0,50,0" />
+        <Label Text="Do you know your friends? Match your friends!"
+               HorizontalTextAlignment="Center"
+               Margin="5" />
+
+        <!-- Navigation Buttons -->
+        <views:PlayCupidTopNavBar />
+
+        <!-- Search Bar -->
+        <SearchBar Placeholder="Search..."
+                   BackgroundColor="#F0F0F0"
+                   Margin="20,0" />
+
+        <!-- Profile Cards (Use CollectionView or ListView) -->
+        <!-- Placeholder for dynamic profile cards -->
+        <!-- Add Bindings and ItemTemplate as per your data model -->
+        <CollectionView ItemsSource="{Binding Profiles}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="10" Padding="10" Margin="10">
+                        <VerticalStackLayout>
+                            <Image Source="{Binding ProfilePicture}" Aspect="AspectFill" />
+                            <Label Text="{Binding Name}" HorizontalOptions="Center" />
+                            <Label Text="{Binding Role}" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <!-- Match Button -->
+        <Button Text="Match"
+                BackgroundColor="#6200EE"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                Margin="20"
+                FontAttributes="Bold" />
+
+        <!-- Bottom Navigation Bar -->
+        <views:HomeBottomNavBar/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -20,3 +20,24 @@ public class UserProfile
     [BsonElement("Friends")]
     public List<string> Friends { get; set; } = new List<string>();
 }
+
+public class User
+{
+    public ObjectId Id { get; set; }
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public string PhoneNumber { get; set; }
+    public string PasswordHash { get; set; }
+    public string JwtTocken { get; set; }
+}
+
+public class UserImages
+{
+    public ObjectId Id { get; set; }
+    public string JwtTocken { get; set; }
+    public string Image_1 { get; set; }
+    public string Image_2 { get; set; }
+    public string Image_3 { get; set; }
+    public string Image_4 { get; set; }
+    
+}

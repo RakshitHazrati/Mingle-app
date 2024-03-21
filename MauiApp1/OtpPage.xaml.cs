@@ -2,19 +2,18 @@ namespace MauiApp1;
 
 public partial class OtpPage : ContentPage
 {
-    private MongoDbContext dbContext;
-    private string mobileNumber;
-
-    public OtpPage(string mobileNumber, MongoDbContext dbContext)
+    //private MongoDbContext dbContext;
+    //private string mobileNumber;
+    private readonly MongoDbContext _dbContext;
+    public OtpPage(MongoDbContext dbContext)
 	{
 		InitializeComponent();
-        this.mobileNumber = mobileNumber;
-        this.dbContext = dbContext;
+        _dbContext = dbContext;
 	}
 
     private void OnEnterClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new ProfilePage(mobileNumber, dbContext));
+        //Navigation.PushAsync(new ProfilePage(mobileNumber, dbContext));
     }
 
     private void OnResendOtpTapped(object sender, EventArgs e)
@@ -26,8 +25,7 @@ public partial class OtpPage : ContentPage
     private void ResendOtp()
     {
         // Implement the logic for resending OTP here
-        // For example, you might send a new OTP to the user's phone number
-        // or trigger the resend OTP process
+
     }
     private void OnDigitEntered(object sender, TextChangedEventArgs e)
     {
@@ -47,6 +45,21 @@ public partial class OtpPage : ContentPage
             case Entry _ when entry == entry3 && e.NewTextValue.Length > 0:
                 entry4.Focus();
                 break;
+
+            case Entry _ when entry == entry4 && e.NewTextValue.Length > 0:
+                entry5.Focus();
+                break;
+
+            case Entry _ when entry == entry5 && e.NewTextValue.Length > 0:
+                entry6.Focus();
+                break;
         }
+    }
+
+    private void entry6_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        //verify otp here if correct move to next page
+        var myDatesPage = Handler.MauiContext.Services.GetService<MyDatesPage>();
+        Navigation.PushAsync(myDatesPage);
     }
 }
