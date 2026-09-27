@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: mingle-api-staging
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: Staging_1
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: Mongo__ConnectionString
+        sync: false
+      - key: Mongo__Database
+        value: MingleApp
+      - key: Storage__UseInMemory
+        value: false
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production

@@ -13,8 +13,8 @@ RUN dotnet publish Mingle.Api/Mingle.Api.csproj \
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-ENV ASPNETCORE_URLS=http://+:8080 \
-    ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 8080
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "Mingle.Api.dll"]
+# Render supplies PORT=10000. Other hosts can omit it and use port 8080.
+ENTRYPOINT ["sh", "-c", "ASPNETCORE_URLS=http://0.0.0.0:${PORT:-8080} exec dotnet Mingle.Api.dll"]

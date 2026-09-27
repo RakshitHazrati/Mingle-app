@@ -46,6 +46,18 @@ dotnet publish MauiApp1\MauiApp1.csproj -f net9.0-android -c Release `
 
 Release builds fail when the public endpoint has not been supplied, preventing an emulator-only APK from being shared accidentally.
 
+### Render
+
+The repository includes a root `render.yaml` Blueprint for a free Docker Web Service in Singapore, linked to `Staging_1` with `/health` checks and automatic deploys.
+
+1. In Render, choose **New → Blueprint** and connect this repository.
+2. Select the `Staging_1` branch and the root `render.yaml` file.
+3. Enter the complete Atlas URI when Render prompts for `Mongo__ConnectionString`.
+4. Create the Blueprint and wait for `/health` to report MongoDB as healthy.
+5. Build the Release APK using the resulting `https://<service>.onrender.com/` URL.
+
+The Docker entrypoint automatically binds to Render's `PORT`; no start-command override is required.
+
 VS Code does not include Visual Studio's embedded emulator manager, but it can build, install, debug, and launch MAUI apps against any Android Virtual Device started through Android Studio's Device Manager or the Android SDK `emulator` command.
 
 ## MongoDB
