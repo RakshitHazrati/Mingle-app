@@ -9,7 +9,7 @@ namespace MauiApp1
 {
     public class JwtService
     {
-        private readonly string _secretKey= "2F5A9T841C3LD06GFBC8D45A8AR6W7PC";
+        private readonly string _secretKey;
         private readonly string _issuer="Mingle";
 
         public JwtService(string secretKey, string issuer)
@@ -19,7 +19,7 @@ namespace MauiApp1
         }
         public JwtService()
         {
-            
+            throw new InvalidOperationException("Token creation moved to Mingle.Api.");
         }
 
         public string GenerateToken(string username)

@@ -1,0 +1,27 @@
+# Build output
+**/bin/
+**/obj/
+
+# Local SDK/NuGet cache used by this workspace
+.dotnet-cli/
+
+# IDE and user-specific files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Local test captures and logs
+artifacts/
+*.log
+
+# Local signing material and environment files
+*.keystore
+*.jks
+.env
+.env.*
+!.env.example
+
+# OS metadata
+.DS_Store
+Thumbs.db

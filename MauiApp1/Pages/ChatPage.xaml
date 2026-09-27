@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.ChatPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiApp1.Models"
+             x:DataType="models:Conversation"
+             Title="Chat">
+  <Grid RowDefinitions="Auto,Auto,*,Auto">
+    <Grid Padding="18,14" ColumnDefinitions="44,48,*,Auto" ColumnSpacing="10" BackgroundColor="White">
+      <Button Text="‹" FontSize="30" TextColor="#201A2B" BackgroundColor="Transparent"
+              WidthRequest="40" HeightRequest="44" Padding="0" Clicked="OnBackClicked" />
+      <Border Grid.Column="1" WidthRequest="46" HeightRequest="46" StrokeThickness="0"
+              StrokeShape="RoundRectangle 23">
+        <Image Source="{Binding Person.Image}" Aspect="AspectFill" />
+      </Border>
+      <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="1">
+        <Label Text="{Binding Person.Name}" FontFamily="OpenSansSemibold" FontSize="16" />
+        <Label Text="Connected through a friend" TextColor="#22A06B" FontSize="10" />
+      </VerticalStackLayout>
+      <Button Grid.Column="3" Text="Plan" Style="{StaticResource SecondaryButton}" HeightRequest="40"
+              Padding="14,5" Clicked="OnPlanClicked" />
+    </Grid>
+
+    <Border Grid.Row="1" Margin="18,10" BackgroundColor="#F0ECFF" StrokeThickness="0"
+            StrokeShape="RoundRectangle 16" Padding="12">
+      <Label Text="Neha introduced you. Be yourself, be kind, and keep personal details private until you’re comfortable."
+             Style="{StaticResource BodyMuted}" FontSize="10" HorizontalTextAlignment="Center" />
+    </Border>
+
+    <CollectionView Grid.Row="2" x:Name="MessagesList" ItemsSource="{Binding Messages}" Margin="14,4"
+                    ItemsLayout="VerticalList">
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="models:ChatMessage">
+          <Border BackgroundColor="{Binding BubbleColor}" Stroke="#ECE7F2" StrokeThickness="1"
+                  StrokeShape="RoundRectangle 19" Padding="14,10" Margin="5"
+                  MaximumWidthRequest="290" HorizontalOptions="{Binding Alignment}">
+            <VerticalStackLayout Spacing="4">
+              <Label Text="{Binding Text}" TextColor="{Binding TextColor}" FontSize="14" />
+              <Label Text="{Binding SentAt, StringFormat='{0:h:mm tt}'}" TextColor="{Binding TextColor}"
+                     Opacity="0.65" FontSize="9" HorizontalTextAlignment="End" />
+            </VerticalStackLayout>
+          </Border>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    <Grid Grid.Row="3" Padding="14,10,14,18" ColumnDefinitions="*,54" ColumnSpacing="9" BackgroundColor="White">
+      <Border Style="{StaticResource Card}" StrokeShape="RoundRectangle 22" Padding="13,0">
+        <Entry x:Name="MessageEntry" Placeholder="Write a message…" ReturnType="Send"
+               Completed="OnSendClicked" />
+      </Border>
+      <Button Grid.Column="1" Text="➤" FontSize="18" WidthRequest="54" HeightRequest="54"
+              CornerRadius="22" Padding="0" Clicked="OnSendClicked" />
+    </Grid>
+  </Grid>
+</ContentPage>

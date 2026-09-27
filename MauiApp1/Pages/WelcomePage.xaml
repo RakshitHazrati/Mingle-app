@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.WelcomePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False">
+  <Grid RowDefinitions="1.15*,Auto" BackgroundColor="#F7F2FF">
+    <Grid Grid.Row="0">
+      <Grid.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+          <GradientStop Color="#EEE7FF" Offset="0" />
+          <GradientStop Color="#FFF1F5" Offset="0.55" />
+          <GradientStop Color="#FFF9F3" Offset="1" />
+        </LinearGradientBrush>
+      </Grid.Background>
+      <BoxView Color="#22FFFFFF" CornerRadius="140" WidthRequest="270" HeightRequest="270"
+               HorizontalOptions="End" VerticalOptions="Start" Margin="0,-80,-80,0" />
+      <Border Margin="28,64,28,22" StrokeThickness="0" StrokeShape="RoundRectangle 42">
+        <Grid>
+          <Image Source="demo_profile_anaya.png" Aspect="AspectFill" />
+          <Grid VerticalOptions="End" Padding="20,60,20,20">
+            <Grid.Background>
+              <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#00000000" Offset="0" />
+                <GradientStop Color="#B8201A2B" Offset="1" />
+              </LinearGradientBrush>
+            </Grid.Background>
+            <HorizontalStackLayout VerticalOptions="End" Spacing="10">
+              <Border BackgroundColor="#EFFFFFFF" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="12,7">
+                <Label Text="♥  matched by friends" TextColor="#6D3BFF" FontFamily="OpenSansSemibold" FontSize="12" />
+              </Border>
+            </HorizontalStackLayout>
+          </Grid>
+        </Grid>
+      </Border>
+      <Border BackgroundColor="#FFFFFF" StrokeThickness="0" StrokeShape="RoundRectangle 22"
+              Padding="14,10" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,18,4">
+        <HorizontalStackLayout Spacing="8">
+          <Label Text="✨" FontSize="18" />
+          <VerticalStackLayout Spacing="0">
+            <Label Text="Thoughtful matches" FontFamily="OpenSansSemibold" FontSize="12" />
+            <Label Text="from people you trust" FontSize="10" TextColor="#746D80" />
+          </VerticalStackLayout>
+        </HorizontalStackLayout>
+      </Border>
+    </Grid>
+
+    <VerticalStackLayout Grid.Row="1" Padding="26,24,26,28" Spacing="15" BackgroundColor="#FAF8FD">
+      <HorizontalStackLayout Spacing="10">
+        <Border BackgroundColor="#6D3BFF" StrokeThickness="0" StrokeShape="RoundRectangle 12" WidthRequest="38" HeightRequest="38">
+          <Label Text="♥" TextColor="White" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Border>
+        <Label Text="mingle" FontFamily="OpenSansSemibold" FontSize="25" VerticalTextAlignment="Center" />
+      </HorizontalStackLayout>
+      <Label Text="Dating feels better when friends have your back." Style="{StaticResource Display}" />
+      <Label Text="Meet people your circle already trusts—or introduce two friends who should know each other."
+             Style="{StaticResource BodyMuted}" FontSize="15" />
+      <Button Text="Get started" Clicked="OnGetStartedClicked" />
+      <Button Text="Explore the product preview" Style="{StaticResource SecondaryButton}" Clicked="OnPreviewClicked" />
+      <Label Text="By continuing, you agree to our Terms and Privacy Policy." FontSize="10"
+             HorizontalTextAlignment="Center" TextColor="#8A8295" />
+    </VerticalStackLayout>
+  </Grid>
+</ContentPage>

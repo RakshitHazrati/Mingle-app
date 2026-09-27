@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.PlanDatePage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiApp1.Models"
+             x:DataType="models:PersonCard"
+             Title="Plan a date">
+  <ScrollView>
+    <VerticalStackLayout Padding="22,20,22,32" Spacing="17">
+      <Button Text="‹" FontSize="30" TextColor="#201A2B" BackgroundColor="Transparent"
+              WidthRequest="44" HeightRequest="44" Padding="0" HorizontalOptions="Start" Clicked="OnBackClicked" />
+      <Label Text="Make the first plan easy" Style="{StaticResource Display}" />
+      <Label Text="{Binding Name, StringFormat='Suggest a relaxed plan to {0}. They can accept or propose another time.'}"
+             Style="{StaticResource BodyMuted}" />
+
+      <Border Style="{StaticResource Card}">
+        <VerticalStackLayout Spacing="15">
+          <Label Text="When?" Style="{StaticResource SectionTitle}" />
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Border Stroke="#ECE7F2" StrokeShape="RoundRectangle 16" Padding="10,2">
+              <DatePicker x:Name="DatePicker" />
+            </Border>
+            <Border Grid.Column="1" Stroke="#ECE7F2" StrokeShape="RoundRectangle 16" Padding="10,2">
+              <TimePicker x:Name="TimePicker" Time="18:30:00" />
+            </Border>
+          </Grid>
+        </VerticalStackLayout>
+      </Border>
+
+      <Border Style="{StaticResource Card}">
+        <VerticalStackLayout Spacing="12">
+          <Label Text="Pick a vibe" Style="{StaticResource SectionTitle}" />
+          <Picker x:Name="VenuePicker" Title="Choose an easy first date">
+            <Picker.Items>
+              <x:String>Coffee and a walk</x:String>
+              <x:String>Casual dinner</x:String>
+              <x:String>Live music</x:String>
+              <x:String>Art gallery</x:String>
+              <x:String>Something outdoors</x:String>
+            </Picker.Items>
+          </Picker>
+        </VerticalStackLayout>
+      </Border>
+
+      <Border Style="{StaticResource Card}">
+        <Editor x:Name="NoteEditor" Placeholder="Add a friendly note (optional)" HeightRequest="95" />
+      </Border>
+
+      <Border BackgroundColor="#E9F8F1" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="14">
+        <Label Text="Safety first: meet in public, tell a friend where you’re going, and arrange your own transport."
+               TextColor="#176A49" FontSize="11" LineHeight="1.25" />
+      </Border>
+      <Button Text="Send date idea" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

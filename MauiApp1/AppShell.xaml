@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="MauiApp1.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiApp1"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MauiApp1">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+<Shell x:Class="MauiApp1.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:MauiApp1.Pages"
+       Shell.FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="False"
+       Title="Mingle">
+  <TabBar>
+    <ShellContent Title="Matches" Icon="mydatezimg.png"
+                  ContentTemplate="{DataTemplate pages:MatchesPage}" />
+    <ShellContent Title="Match friends" Icon="playcupidimg.png"
+                  ContentTemplate="{DataTemplate pages:MatchFriendsPage}" />
+    <ShellContent Title="Chats" Icon="inboximg.png"
+                  ContentTemplate="{DataTemplate pages:InboxPage}" />
+    <ShellContent Title="You" Icon="profile_placeholder.png"
+                  ContentTemplate="{DataTemplate pages:AccountPage}" />
+  </TabBar>
 </Shell>

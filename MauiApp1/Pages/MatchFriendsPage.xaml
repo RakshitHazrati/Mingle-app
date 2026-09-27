@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.MatchFriendsPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiApp1.Models">
+  <ScrollView>
+    <VerticalStackLayout Padding="22,20,22,34" Spacing="18">
+      <Grid ColumnDefinitions="*,Auto">
+        <VerticalStackLayout>
+          <Label Text="PLAY CUPID" TextColor="#6D3BFF" FontFamily="OpenSansSemibold" FontSize="11" CharacterSpacing="1.6" />
+          <Label Text="Match your friends" Style="{StaticResource Title}" />
+        </VerticalStackLayout>
+        <Border Grid.Column="1" BackgroundColor="#FFE7EF" StrokeThickness="0" StrokeShape="RoundRectangle 16"
+                Padding="11,7" VerticalOptions="Center">
+          <Label x:Name="PointsLabel" TextColor="#A92F55" FontFamily="OpenSansSemibold" />
+        </Border>
+      </Grid>
+      <Label Text="You know the chemistry. Pick two people from your trusted circle and make a thoughtful introduction."
+             Style="{StaticResource BodyMuted}" FontSize="15" />
+
+      <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" Padding="20">
+        <Border.Background>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#6D3BFF" Offset="0" />
+            <GradientStop Color="#A548D7" Offset="0.58" />
+            <GradientStop Color="#FF5C8A" Offset="1" />
+          </LinearGradientBrush>
+        </Border.Background>
+        <VerticalStackLayout Spacing="15">
+          <Label Text="Create an introduction" TextColor="White" FontFamily="OpenSansSemibold" FontSize="21" />
+          <Label Text="They’ll each receive a private invitation. Nothing is shared publicly."
+                 TextColor="#F3EDFF" FontSize="12" />
+
+          <Border BackgroundColor="#F7FFFFFF" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="12,4">
+            <Picker x:Name="FirstFriendPicker" Title="Choose first friend"
+                    TextColor="#201A2B" TitleColor="#746D80" />
+          </Border>
+          <Grid ColumnDefinitions="*,Auto,*">
+            <BoxView HeightRequest="1" Color="#88FFFFFF" VerticalOptions="Center" />
+            <Border Grid.Column="1" BackgroundColor="#44FFFFFF" Stroke="#AAFFFFFF" StrokeShape="RoundRectangle 18"
+                    Padding="11,7" Margin="10,0">
+              <Label Text="♥ + ♥" TextColor="White" FontFamily="OpenSansSemibold" />
+            </Border>
+            <BoxView Grid.Column="2" HeightRequest="1" Color="#88FFFFFF" VerticalOptions="Center" />
+          </Grid>
+          <Border BackgroundColor="#F7FFFFFF" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="12,4">
+            <Picker x:Name="SecondFriendPicker" Title="Choose second friend"
+                    TextColor="#201A2B" TitleColor="#746D80" />
+          </Border>
+          <Label Text="How strong is the hunch?" TextColor="White" FontFamily="OpenSansSemibold" FontSize="12" />
+          <Slider x:Name="ConfidenceSlider" Minimum="1" Maximum="5" Value="4"
+                  MinimumTrackColor="#FFFFFF" MaximumTrackColor="#88FFFFFF" ThumbColor="#FFFFFF" />
+          <Button Text="Make the introduction" BackgroundColor="White" TextColor="#6D3BFF" Clicked="OnMatchClicked" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Grid ColumnDefinitions="*,Auto">
+        <Label Text="Your trusted circle" Style="{StaticResource SectionTitle}" />
+        <Button Grid.Column="1" Text="+ Invite" Style="{StaticResource SecondaryButton}" HeightRequest="38"
+                Padding="12,4" Clicked="OnInviteClicked" />
+      </Grid>
+      <CollectionView x:Name="FriendsList" HeightRequest="245" ItemsLayout="VerticalList">
+        <CollectionView.ItemTemplate>
+          <DataTemplate x:DataType="models:PersonCard">
+            <Border Style="{StaticResource Card}" StrokeShape="RoundRectangle 18" Padding="12" Margin="3,4">
+              <Grid ColumnDefinitions="46,*,Auto" ColumnSpacing="11">
+                <Border WidthRequest="44" HeightRequest="44" BackgroundColor="{Binding Accent}" StrokeThickness="0"
+                        StrokeShape="RoundRectangle 22">
+                  <Label Text="{Binding Initials}" TextColor="White" FontFamily="OpenSansSemibold"
+                         HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
+                  <Label Text="{Binding Name}" FontFamily="OpenSansSemibold" FontSize="13" />
+                  <Label Text="{Binding City}" Style="{StaticResource BodyMuted}" FontSize="10" />
+                </VerticalStackLayout>
+                <Label Grid.Column="2" Text="{Binding MembershipStatus}" TextColor="#6D3BFF"
+                       FontSize="10" VerticalOptions="Center" />
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

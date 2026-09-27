@@ -1,40 +1,41 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui.Hosting;
+using MauiApp1.Services;
+using Microsoft.Extensions.Logging;
+using System.Reflection;
 
-namespace MauiApp1
+namespace MauiApp1;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
+
+        builder.Services.AddSingleton<AppState>();
+        var apiBaseUrl = typeof(MauiProgram).Assembly
+            .GetCustomAttributes<AssemblyMetadataAttribute>()
+            .Single(attribute => attribute.Key == "MingleApiBaseUrl")
+            .Value ?? throw new InvalidOperationException("The Mingle API URL is not configured.");
+
+        builder.Services.AddSingleton(new HttpClient
         {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
-                
-
-            builder.Services.AddSingleton<MongoDbContext>(new MongoDbContext());
-
-            builder.Services.AddTransient<LogIn>();
-            builder.Services.AddTransient<SignUpPage>();
-            builder.Services.AddTransient<OtpPage>();
-            builder.Services.AddTransient<MyDatesPage>();
-            builder.Services.AddTransient<PlayCupidMembersPage>();
-            builder.Services.AddTransient<PlayCupidInvitePage>();
-            builder.Services.AddTransient<ProfilePage>();
+            BaseAddress = new Uri(apiBaseUrl, UriKind.Absolute),
+            Timeout = TimeSpan.FromSeconds(12)
+        });
+        builder.Services.AddSingleton<MingleApiClient>();
 
 #if DEBUG
-            builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-
-
-            return builder.Build();
-        }
+        var app = builder.Build();
+        AppServices.Provider = app.Services;
+        return app;
     }
 }

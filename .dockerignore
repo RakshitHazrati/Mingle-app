@@ -1,0 +1,10 @@
+**/bin
+**/obj
+.git
+.vs
+.vscode
+.dotnet-cli
+artifacts
+MauiApp1
+*.user
+*.suo

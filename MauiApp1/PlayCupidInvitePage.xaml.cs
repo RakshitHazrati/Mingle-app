@@ -32,18 +32,18 @@ public partial class PlayCupidInvitePage : ContentPage
 
 
 
-    public async IAsyncEnumerable<Contact> GetContactNames()
-    {
-        var contacts = await Contacts.Default.GetAllAsync();
+    //public async IAsyncEnumerable<Contact> GetContactNames()
+    //{
+    //    var contacts = await Contacts.Default.GetAllAsync();
 
-        // No contacts
-        if (contacts == null)
-            yield break;
+    //    // No contacts
+    //    if (contacts == null)
+    //        yield break;
 
-        foreach (var contact in contacts)
+    //    foreach (var contact in contacts)
 
-            yield return contact;
-    }
+    //        yield return contact;
+    //}
     async Task SendSMSAsync(Contact c)
     {
         if (Sms.Default.IsComposeSupported)

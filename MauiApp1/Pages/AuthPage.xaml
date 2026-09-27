@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.AuthPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Your account">
+  <ScrollView>
+    <VerticalStackLayout Padding="24,20,24,36" Spacing="16">
+      <HorizontalStackLayout Spacing="10">
+        <Border BackgroundColor="#6D3BFF" StrokeThickness="0" StrokeShape="RoundRectangle 11" WidthRequest="36" HeightRequest="36">
+          <Label Text="♥" TextColor="White" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Border>
+        <Label Text="mingle" FontFamily="OpenSansSemibold" FontSize="23" VerticalTextAlignment="Center" />
+      </HorizontalStackLayout>
+
+      <Label x:Name="Heading" Text="Create your account" Style="{StaticResource Display}" Margin="0,10,0,0" />
+      <Label x:Name="Subheading" Text="Real people, trusted introductions, and no endless swiping."
+             Style="{StaticResource BodyMuted}" FontSize="15" />
+
+      <HorizontalStackLayout Spacing="10">
+        <Button x:Name="SignUpTab" Text="Sign up" WidthRequest="110" HeightRequest="42" Clicked="OnSignUpMode" />
+        <Button x:Name="SignInTab" Text="Sign in" WidthRequest="110" HeightRequest="42"
+                Style="{StaticResource SecondaryButton}" Clicked="OnSignInMode" />
+      </HorizontalStackLayout>
+
+      <VerticalStackLayout x:Name="SignUpOnlyFields" Spacing="8">
+        <Label Text="Your name" FontFamily="OpenSansSemibold" FontSize="12" />
+        <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+          <Entry x:Name="NameEntry" Placeholder="What should we call you?" />
+        </Border>
+      </VerticalStackLayout>
+
+      <VerticalStackLayout Spacing="8">
+        <Label Text="Email" FontFamily="OpenSansSemibold" FontSize="12" />
+        <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+          <Entry x:Name="EmailEntry" Placeholder="you@example.com" Keyboard="Email" />
+        </Border>
+      </VerticalStackLayout>
+
+      <VerticalStackLayout x:Name="PhoneField" Spacing="8">
+        <Label Text="Phone number" FontFamily="OpenSansSemibold" FontSize="12" />
+        <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+          <Entry x:Name="PhoneEntry" Placeholder="+91 98765 43210" Keyboard="Telephone" />
+        </Border>
+      </VerticalStackLayout>
+
+      <VerticalStackLayout Spacing="8">
+        <Label Text="Password" FontFamily="OpenSansSemibold" FontSize="12" />
+        <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+          <Entry x:Name="PasswordEntry" Placeholder="At least 10 characters" IsPassword="True" />
+        </Border>
+      </VerticalStackLayout>
+
+      <Label x:Name="ErrorLabel" TextColor="#C42B4A" FontSize="12" IsVisible="False" />
+      <Button x:Name="ContinueButton" Text="Create account" Clicked="OnContinueClicked" />
+
+      <Border BackgroundColor="#F0ECFF" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="14">
+        <HorizontalStackLayout Spacing="10">
+          <Label Text="🔒" FontSize="18" />
+          <Label Text="Only contacts you select are synced. Phone numbers become one-way hashes; private display names are kept in your circle."
+                 Style="{StaticResource BodyMuted}" FontSize="11" HorizontalOptions="FillAndExpand" />
+        </HorizontalStackLayout>
+      </Border>
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

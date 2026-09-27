@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.ProfileSetupPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Your profile">
+  <ScrollView>
+    <VerticalStackLayout Padding="24,20,24,38" Spacing="15">
+      <Label x:Name="StepLabel" Text="PROFILE SETUP" TextColor="#6D3BFF"
+             FontFamily="OpenSansSemibold" FontSize="12" CharacterSpacing="2" />
+      <Label Text="Show up as yourself" Style="{StaticResource Title}" />
+      <Label Text="Your friend-curated matches will see this profile. You can edit it any time."
+             Style="{StaticResource BodyMuted}" FontSize="14" />
+
+      <Border BackgroundColor="#EFEAFF" StrokeThickness="0" StrokeShape="RoundRectangle 22" Padding="16">
+        <Grid ColumnDefinitions="62,*" ColumnSpacing="14">
+          <Border WidthRequest="60" HeightRequest="60" StrokeThickness="0" StrokeShape="RoundRectangle 30">
+            <Border.Background>
+              <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#6D3BFF" Offset="0" />
+                <GradientStop Color="#FF5C8A" Offset="1" />
+              </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+              <Label x:Name="AvatarInitials" Text="ME" TextColor="White" FontFamily="OpenSansSemibold"
+                     HorizontalOptions="Center" VerticalOptions="Center" />
+              <Image x:Name="ProfileImage" IsVisible="False" Aspect="AspectFill" />
+            </Grid>
+          </Border>
+          <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+            <Label Text="Choose a clear profile photo" FontFamily="OpenSansSemibold" />
+            <Label Text="JPEG or PNG, up to 5 MB. Stored privately in MongoDB GridFS."
+                   Style="{StaticResource BodyMuted}" FontSize="10" />
+          </VerticalStackLayout>
+        </Grid>
+      </Border>
+      <Button Text="Choose profile photo" Style="{StaticResource SecondaryButton}" Clicked="OnChoosePhotoClicked" />
+
+      <Label Text="Name" FontFamily="OpenSansSemibold" FontSize="12" />
+      <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+        <Entry x:Name="NameEntry" Placeholder="Your name" />
+      </Border>
+
+      <Label Text="Date of birth" FontFamily="OpenSansSemibold" FontSize="12" />
+      <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+        <DatePicker x:Name="BirthDatePicker" Format="dd MMMM yyyy" />
+      </Border>
+
+      <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+        <VerticalStackLayout Spacing="8">
+          <Label Text="City" FontFamily="OpenSansSemibold" FontSize="12" />
+          <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+            <Entry x:Name="CityEntry" Placeholder="Bengaluru" />
+          </Border>
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Column="1" Spacing="8">
+          <Label Text="What you do" FontFamily="OpenSansSemibold" FontSize="12" />
+          <Border Style="{StaticResource Card}" Padding="14,0" StrokeShape="RoundRectangle 16">
+            <Entry x:Name="OccupationEntry" Placeholder="Product designer" />
+          </Border>
+        </VerticalStackLayout>
+      </Grid>
+
+      <Label Text="A little about you" FontFamily="OpenSansSemibold" FontSize="12" />
+      <Border Style="{StaticResource Card}" Padding="12" StrokeShape="RoundRectangle 16">
+        <Editor x:Name="BioEditor" Placeholder="What would you want a thoughtful match to know?"
+                AutoSize="TextChanges" MinimumHeightRequest="110" MaxLength="800" />
+      </Border>
+
+      <Label x:Name="ErrorLabel" IsVisible="False" TextColor="#C42B4A" FontSize="12" />
+      <Button x:Name="SaveButton" Text="Save and continue" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

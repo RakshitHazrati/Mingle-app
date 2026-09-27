@@ -4,6 +4,10 @@
 <dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSContactsUsageDescription</key>
+	<string>Mingle uses contacts you select to build your private trusted circle and find friends already on Mingle.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Mingle lets you choose a profile photo to share with trusted introductions.</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

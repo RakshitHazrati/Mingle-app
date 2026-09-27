@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.MatchDetailPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiApp1.Models"
+             x:DataType="models:MatchCard"
+             Title="Match profile">
+  <ScrollView>
+    <VerticalStackLayout Spacing="0">
+      <Grid HeightRequest="410">
+        <Image Source="{Binding Person.Image}" Aspect="AspectFill" />
+        <Button Text="‹" FontSize="30" BackgroundColor="#BFFFFFFF" TextColor="#201A2B"
+                WidthRequest="46" HeightRequest="46" CornerRadius="23" Padding="0"
+                HorizontalOptions="Start" VerticalOptions="Start" Margin="18,18,0,0" Clicked="OnBackClicked" />
+        <Grid VerticalOptions="End" Padding="22,80,22,20">
+          <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+              <GradientStop Color="#00000000" Offset="0" />
+              <GradientStop Color="#C8201A2B" Offset="1" />
+            </LinearGradientBrush>
+          </Grid.Background>
+          <VerticalStackLayout VerticalOptions="End" Spacing="3">
+            <Label Text="{Binding Person.DisplayName}" FontFamily="OpenSansSemibold" FontSize="31" TextColor="White" />
+            <Label Text="{Binding Person.Subtitle}" TextColor="#F2EDF6" />
+          </VerticalStackLayout>
+        </Grid>
+      </Grid>
+
+      <VerticalStackLayout Padding="22,22,22,34" Spacing="18">
+        <Border BackgroundColor="#F0ECFF" StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="15">
+          <Grid ColumnDefinitions="44,*" ColumnSpacing="12">
+            <Border WidthRequest="42" HeightRequest="42" BackgroundColor="#6D3BFF" StrokeThickness="0"
+                    StrokeShape="RoundRectangle 21">
+              <Label Text="{Binding MatchedByInitials}" TextColor="White" FontFamily="OpenSansSemibold"
+                     HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
+            <VerticalStackLayout Grid.Column="1" Spacing="2">
+              <Label Text="{Binding MatchedBy, StringFormat='Matched by {0}'}" FontFamily="OpenSansSemibold" />
+              <Label Text="{Binding Reason}" Style="{StaticResource BodyMuted}" FontSize="12" />
+            </VerticalStackLayout>
+          </Grid>
+        </Border>
+
+        <Label Text="About" Style="{StaticResource SectionTitle}" />
+        <Label Text="{Binding Person.Bio}" Style="{StaticResource BodyMuted}" FontSize="15" />
+
+        <Label Text="A promising overlap" Style="{StaticResource SectionTitle}" />
+        <FlexLayout Wrap="Wrap" Direction="Row">
+          <Border BackgroundColor="#FFE7EF" StrokeThickness="0" StrokeShape="RoundRectangle 14" Padding="12,7" Margin="0,0,8,8">
+            <Label Text="☕ Café hunting" TextColor="#A92F55" FontSize="12" />
+          </Border>
+          <Border BackgroundColor="#E9F8F1" StrokeThickness="0" StrokeShape="RoundRectangle 14" Padding="12,7" Margin="0,0,8,8">
+            <Label Text="♫ Live music" TextColor="#187A52" FontSize="12" />
+          </Border>
+          <Border BackgroundColor="#EEE9FF" StrokeThickness="0" StrokeShape="RoundRectangle 14" Padding="12,7" Margin="0,0,8,8">
+            <Label Text="✈ Weekend trips" TextColor="#5330C5" FontSize="12" />
+          </Border>
+        </FlexLayout>
+
+        <Label x:Name="ResponseLabel" Text="Would you like to connect?" Style="{StaticResource SectionTitle}"
+               HorizontalTextAlignment="Center" />
+        <Grid x:Name="DecisionButtons" ColumnDefinitions="*,*" ColumnSpacing="10">
+          <Button Grid.Column="0" Text="Not for me" Style="{StaticResource SecondaryButton}" Clicked="OnDeclineClicked" />
+          <Button Grid.Column="1" Text="I’m interested" Clicked="OnAcceptClicked" />
+        </Grid>
+        <Grid x:Name="ConnectedButtons" ColumnDefinitions="*,*" ColumnSpacing="10" IsVisible="False">
+          <Button Grid.Column="0" Text="Plan a date" Style="{StaticResource SecondaryButton}" Clicked="OnPlanDateClicked" />
+          <Button Grid.Column="1" Text="Message" Clicked="OnMessageClicked" />
+        </Grid>
+      </VerticalStackLayout>
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

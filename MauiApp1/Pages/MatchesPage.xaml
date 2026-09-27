@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.MatchesPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MauiApp1.Pages"
+             x:DataType="pages:MatchesPage">
+  <ScrollView>
+    <VerticalStackLayout Padding="22,20,22,32" Spacing="18">
+      <Grid ColumnDefinitions="*,Auto">
+        <VerticalStackLayout Spacing="1">
+          <Label Text="mingle" TextColor="#6D3BFF" FontFamily="OpenSansSemibold" FontSize="15" />
+          <Label Text="Your Matches" Style="{StaticResource Title}" />
+        </VerticalStackLayout>
+        <Border Grid.Column="1" BackgroundColor="#FFF3D6" StrokeThickness="0" StrokeShape="RoundRectangle 16"
+                Padding="11,7" VerticalOptions="Center">
+          <HorizontalStackLayout Spacing="5">
+            <Label Text="✦" TextColor="#D98200" />
+            <Label x:Name="PointsLabel" TextColor="#9A5B00" FontFamily="OpenSansSemibold" />
+          </HorizontalStackLayout>
+        </Border>
+      </Grid>
+
+      <Border BackgroundColor="#EFEAFF" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="14">
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+          <Label Text="🤝" FontSize="21" />
+          <Label Grid.Column="1" Text="A friend who knows you both made this introduction."
+                 Style="{StaticResource BodyMuted}" FontSize="12" VerticalOptions="Center" />
+        </Grid>
+      </Border>
+
+      <Border x:Name="EmptyMatches" IsVisible="False" BackgroundColor="#EFEAFF" StrokeThickness="0"
+              StrokeShape="RoundRectangle 24" Padding="24">
+        <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+          <Label Text="✨" FontSize="34" HorizontalTextAlignment="Center" />
+          <Label Text="No introductions yet" Style="{StaticResource SectionTitle}" HorizontalTextAlignment="Center" />
+          <Label Text="When a friend matches you with someone, it will appear here. Pull the app back into view to refresh."
+                 Style="{StaticResource BodyMuted}" FontSize="12" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border x:Name="MatchCard" StrokeThickness="0" StrokeShape="RoundRectangle 30" HeightRequest="430">
+        <Grid>
+          <Image Source="{Binding PrimaryMatch.Person.Image}" Aspect="AspectFill" />
+          <Grid VerticalOptions="End" Padding="20,105,20,20">
+            <Grid.Background>
+              <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#00000000" Offset="0" />
+                <GradientStop Color="#DB160F22" Offset="0.75" />
+              </LinearGradientBrush>
+            </Grid.Background>
+            <VerticalStackLayout VerticalOptions="End" Spacing="8">
+              <Border BackgroundColor="#EFFFFFFF" StrokeThickness="0" StrokeShape="RoundRectangle 13"
+                      Padding="10,5" HorizontalOptions="Start">
+                <Label x:Name="MatchStatusLabel" Text="{Binding PrimaryMatch.StatusLabel}"
+                       TextColor="#6D3BFF" FontFamily="OpenSansSemibold" FontSize="11" />
+              </Border>
+              <Label Text="{Binding PrimaryMatch.Person.DisplayName}" FontFamily="OpenSansSemibold"
+                     FontSize="30" TextColor="White" />
+              <Label Text="{Binding PrimaryMatch.Person.Subtitle}" FontSize="13" TextColor="#E8E1ED" />
+              <Label Text="{Binding PrimaryMatch.Reason}" FontSize="13" TextColor="White" LineHeight="1.25" />
+              <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,7,0,0">
+                <Button Grid.Column="0" Text="Not now" BackgroundColor="#55FFFFFF" Clicked="OnPassClicked" />
+                <Button Grid.Column="1" Text="View match" BackgroundColor="#FFFFFF" TextColor="#6D3BFF"
+                        Clicked="OnViewMatchClicked" />
+              </Grid>
+            </VerticalStackLayout>
+          </Grid>
+        </Grid>
+      </Border>
+
+      <Grid ColumnDefinitions="*,Auto">
+        <Label Text="Your circle" Style="{StaticResource SectionTitle}" />
+        <Label Grid.Column="1" Text="Recent activity" TextColor="#6D3BFF" FontFamily="OpenSansSemibold" FontSize="12" />
+      </Grid>
+      <Border Style="{StaticResource Card}">
+        <Grid ColumnDefinitions="44,*,Auto" ColumnSpacing="12">
+          <Border WidthRequest="42" HeightRequest="42" BackgroundColor="#FF5C8A" StrokeThickness="0"
+                  StrokeShape="RoundRectangle 21">
+            <Label Text="NK" TextColor="White" FontFamily="OpenSansSemibold"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+          </Border>
+          <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+            <Label Text="Neha made an introduction" FontFamily="OpenSansSemibold" FontSize="13" />
+            <Label Text="“You two have the same Sunday energy.”" Style="{StaticResource BodyMuted}" FontSize="11" />
+          </VerticalStackLayout>
+          <Label Grid.Column="2" Text="2h" TextColor="#8A8295" FontSize="11" VerticalOptions="Center" />
+        </Grid>
+      </Border>
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

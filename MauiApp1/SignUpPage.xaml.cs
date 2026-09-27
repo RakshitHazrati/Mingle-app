@@ -13,8 +13,7 @@ public partial class SignUpPage : ContentPage
     public SignUpPage(MongoDbContext dbContext)
 	{
 		InitializeComponent();
-        //string connectionString = "mongodb://rakshithazrati:w8mSxGhX4sbnOID5@ac-annsyke-shard-00-02.7qncxbg.mongodb.net:27017,ac-annsyke-shard-00-01.7qncxbg.mongodb.net:27017,ac-annsyke-shard-00-00.7qncxbg.mongodb.net:27017/MingleApp?authSource=admin&ssl=true";
-        ////string connectionString = "mongodb+srv://rakshithazrati:w8mSxGhX4sbnOID5@mingleapp.7qncxbg.mongodb.net/?retryWrites=true&w=majority&appName=MingleApp";
+        // Legacy direct database access was removed. The rebuilt client calls Mingle.Api.
         //string databaseName = "MingleApp";
         //dbContext = new MongoDbContext(connectionString, databaseName);
         _dbContext = dbContext;

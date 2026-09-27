@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiApp1.Pages.InboxPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiApp1.Models">
+  <VerticalStackLayout Padding="22,20,22,28" Spacing="17">
+    <Label Text="Messages" Style="{StaticResource Title}" />
+    <Label Text="Conversations open only after both people accept." Style="{StaticResource BodyMuted}" />
+    <Border BackgroundColor="#E9F8F1" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="13">
+      <HorizontalStackLayout Spacing="9">
+        <Label Text="🛡" FontSize="18" />
+        <Label Text="Block, report, and safety controls stay one tap away." TextColor="#176A49"
+               FontSize="11" VerticalOptions="Center" />
+      </HorizontalStackLayout>
+    </Border>
+    <CollectionView x:Name="ConversationList" SelectionMode="Single" SelectionChanged="OnConversationSelected">
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="models:Conversation">
+          <Border Style="{StaticResource Card}" StrokeShape="RoundRectangle 20" Padding="13" Margin="3,5">
+            <Grid ColumnDefinitions="58,*,Auto" ColumnSpacing="12">
+              <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" StrokeShape="RoundRectangle 28">
+                <Image Source="{Binding Person.Image}" Aspect="AspectFill" />
+              </Border>
+              <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                <Label Text="{Binding Person.Name}" FontFamily="OpenSansSemibold" FontSize="15" />
+                <Label Text="{Binding LastMessage}" Style="{StaticResource BodyMuted}" FontSize="11"
+                       MaxLines="1" LineBreakMode="TailTruncation" />
+              </VerticalStackLayout>
+              <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="6">
+                <Label Text="{Binding LastMessageTime}" TextColor="#8A8295" FontSize="9" />
+                <Border BackgroundColor="#6D3BFF" StrokeThickness="0" StrokeShape="RoundRectangle 8"
+                        WidthRequest="8" HeightRequest="8" HorizontalOptions="End" />
+              </VerticalStackLayout>
+            </Grid>
+          </Border>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+  </VerticalStackLayout>
+</ContentPage>
