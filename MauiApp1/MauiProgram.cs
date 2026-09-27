@@ -26,7 +26,8 @@ public static class MauiProgram
         builder.Services.AddSingleton(new HttpClient
         {
             BaseAddress = new Uri(apiBaseUrl, UriKind.Absolute),
-            Timeout = TimeSpan.FromSeconds(12)
+            // Free staging hosts can require close to a minute for a cold start.
+            Timeout = TimeSpan.FromSeconds(75)
         });
         builder.Services.AddSingleton<MingleApiClient>();
 
