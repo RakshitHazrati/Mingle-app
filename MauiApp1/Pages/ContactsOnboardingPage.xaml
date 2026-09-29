@@ -5,17 +5,25 @@
              xmlns:models="clr-namespace:MauiApp1.Models"
              Title="Build your circle">
   <Grid RowDefinitions="Auto,Auto,*,Auto">
-    <VerticalStackLayout Padding="24,20,24,12" Spacing="9">
-      <Label Text="STEP 2 OF 2" TextColor="#6D3BFF" FontFamily="OpenSansSemibold"
-             FontSize="12" CharacterSpacing="2" />
-      <Label Text="Choose your trusted circle" Style="{StaticResource Title}" />
-      <Label Text="Mingle reads contacts only after permission. Select exactly who should join your private circle."
-             Style="{StaticResource BodyMuted}" FontSize="13" />
-    </VerticalStackLayout>
+    <Grid Padding="20,14,20,10" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+      <VerticalStackLayout Spacing="3">
+        <Label Text="STEP 2 OF 2" TextColor="#6D3BFF" FontFamily="OpenSansSemibold"
+               FontSize="11" CharacterSpacing="1.5" />
+        <Label Text="Choose your trusted circle" Style="{StaticResource Title}" FontSize="23" />
+        <Label x:Name="ContactSummaryLabel" Text="Only contacts you choose are shared with Mingle."
+               Style="{StaticResource BodyMuted}" FontSize="12" />
+      </VerticalStackLayout>
+      <Button Grid.Column="1" Text="Share code" Style="{StaticResource SecondaryButton}"
+              FontSize="12" Padding="13,8" MinimumHeightRequest="42" VerticalOptions="Center"
+              Clicked="OnShareClicked" />
+    </Grid>
 
-    <Grid Grid.Row="1" Padding="24,4,24,12" ColumnDefinitions="*,Auto" ColumnSpacing="10">
-      <Button x:Name="LoadContactsButton" Text="Open phone contacts" Clicked="OnLoadContactsClicked" />
-      <Button Grid.Column="1" Text="Share code" Style="{StaticResource SecondaryButton}" Clicked="OnShareClicked" />
+    <Grid Grid.Row="1" Padding="20,4,20,10" RowDefinitions="Auto,Auto" RowSpacing="8">
+      <Button x:Name="LoadContactsButton" Text="Open phone contacts"
+              MinimumHeightRequest="48" Clicked="OnLoadContactsClicked" />
+      <SearchBar x:Name="ContactSearch" Grid.Row="1" IsVisible="False"
+                 Placeholder="Search name or phone number" HeightRequest="46"
+                 TextChanged="OnSearchTextChanged" />
     </Grid>
 
     <Grid Grid.Row="2">
@@ -27,11 +35,20 @@
                Style="{StaticResource BodyMuted}" FontSize="12" HorizontalTextAlignment="Center" />
       </VerticalStackLayout>
 
-      <CollectionView x:Name="ContactsList" Margin="18,0" IsVisible="False"
-                      SelectionMode="Multiple" SelectionChanged="OnSelectionChanged">
+      <CollectionView x:Name="ContactsList" Margin="14,0" IsVisible="False"
+                      SelectionMode="Multiple" SelectionChanged="OnSelectionChanged"
+                      ItemsUpdatingScrollMode="KeepScrollOffset">
+        <CollectionView.EmptyView>
+          <VerticalStackLayout Padding="28" Spacing="8" VerticalOptions="Center">
+            <Label Text="No matching contacts" Style="{StaticResource SectionTitle}"
+                   HorizontalTextAlignment="Center" />
+            <Label Text="Try another name or phone number." Style="{StaticResource BodyMuted}"
+                   HorizontalTextAlignment="Center" />
+          </VerticalStackLayout>
+        </CollectionView.EmptyView>
         <CollectionView.ItemTemplate>
           <DataTemplate x:DataType="models:DeviceContactCard">
-            <Border Stroke="#E7E1ED" StrokeShape="RoundRectangle 18" Padding="14" Margin="6">
+            <Border Stroke="#E7E1ED" StrokeShape="RoundRectangle 16" Padding="10" Margin="5,3">
               <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup Name="CommonStates">
                   <VisualState Name="Normal">
@@ -47,14 +64,15 @@
                   </VisualState>
                 </VisualStateGroup>
               </VisualStateManager.VisualStateGroups>
-              <Grid ColumnDefinitions="50,*,Auto" ColumnSpacing="12">
-                <Border WidthRequest="48" HeightRequest="48" StrokeThickness="0" StrokeShape="RoundRectangle 24"
+              <Grid ColumnDefinitions="44,*,Auto" ColumnSpacing="10">
+                <Border WidthRequest="42" HeightRequest="42" StrokeThickness="0" StrokeShape="RoundRectangle 21"
                         BackgroundColor="#6D3BFF">
                   <Label Text="{Binding Initials}" TextColor="White" FontFamily="OpenSansSemibold"
                          HorizontalOptions="Center" VerticalOptions="Center" />
                 </Border>
-                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
-                  <Label Text="{Binding DisplayName}" FontFamily="OpenSansSemibold" />
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
+                  <Label Text="{Binding DisplayName}" FontFamily="OpenSansSemibold"
+                         MaxLines="1" LineBreakMode="TailTruncation" />
                   <Label Text="{Binding MaskedPhone}" Style="{StaticResource BodyMuted}" FontSize="11" />
                 </VerticalStackLayout>
                 <Label Grid.Column="2" Text="Select" TextColor="#6D3BFF" FontFamily="OpenSansSemibold"
@@ -64,13 +82,27 @@
           </DataTemplate>
         </CollectionView.ItemTemplate>
       </CollectionView>
+
+      <Grid x:Name="LoadingOverlay" IsVisible="False" BackgroundColor="#D9FAF8FD">
+        <Border Style="{StaticResource Card}" Padding="22" HorizontalOptions="Center" VerticalOptions="Center">
+          <VerticalStackLayout Spacing="10">
+            <ActivityIndicator IsRunning="True" Color="#6D3BFF" WidthRequest="34" HeightRequest="34" />
+            <Label Text="Preparing your contacts…" FontFamily="OpenSansSemibold" HorizontalTextAlignment="Center" />
+            <Label Text="Large contact lists can take a moment." Style="{StaticResource BodyMuted}"
+                   FontSize="11" HorizontalTextAlignment="Center" />
+          </VerticalStackLayout>
+        </Border>
+      </Grid>
     </Grid>
 
-    <VerticalStackLayout Grid.Row="3" Padding="24,12,24,24" Spacing="8" BackgroundColor="#FAF8FD">
-      <Label x:Name="SelectionLabel" Text="No contacts selected" HorizontalTextAlignment="Center"
+    <Grid Grid.Row="3" Padding="20,9,20,14" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto"
+          RowSpacing="6" ColumnSpacing="10" BackgroundColor="#FAF8FD">
+      <Label x:Name="SelectionLabel" Text="No contacts selected" VerticalTextAlignment="Center"
              Style="{StaticResource BodyMuted}" FontSize="11" />
-      <Button x:Name="ContinueButton" Text="Add selected contacts" IsEnabled="False" Clicked="OnContinueClicked" />
-      <Button Text="I’ll do this later" Style="{StaticResource GhostButton}" HeightRequest="42" Clicked="OnSkipClicked" />
-    </VerticalStackLayout>
+      <Button Grid.Column="1" Text="Do this later" Style="{StaticResource GhostButton}"
+              FontSize="11" Padding="8,4" MinimumHeightRequest="32" Clicked="OnSkipClicked" />
+      <Button x:Name="ContinueButton" Grid.Row="1" Grid.ColumnSpan="2" Text="Add selected contacts"
+              MinimumHeightRequest="48" IsEnabled="False" Clicked="OnContinueClicked" />
+    </Grid>
   </Grid>
 </ContentPage>

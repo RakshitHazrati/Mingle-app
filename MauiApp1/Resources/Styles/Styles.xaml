@@ -9,21 +9,24 @@
     <Setter Property="FontFamily" Value="OpenSansRegular" />
     <Setter Property="TextColor" Value="{StaticResource Ink}" />
     <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="1.16" />
   </Style>
   <Style x:Key="Display" TargetType="Label">
     <Setter Property="FontFamily" Value="OpenSansSemibold" />
     <Setter Property="FontSize" Value="34" />
-    <Setter Property="LineHeight" Value="1.08" />
+    <Setter Property="LineHeight" Value="1.16" />
     <Setter Property="TextColor" Value="{StaticResource Ink}" />
   </Style>
   <Style x:Key="Title" TargetType="Label">
     <Setter Property="FontFamily" Value="OpenSansSemibold" />
     <Setter Property="FontSize" Value="25" />
+    <Setter Property="LineHeight" Value="1.18" />
     <Setter Property="TextColor" Value="{StaticResource Ink}" />
   </Style>
   <Style x:Key="SectionTitle" TargetType="Label">
     <Setter Property="FontFamily" Value="OpenSansSemibold" />
     <Setter Property="FontSize" Value="18" />
+    <Setter Property="LineHeight" Value="1.18" />
     <Setter Property="TextColor" Value="{StaticResource Ink}" />
   </Style>
   <Style x:Key="BodyMuted" TargetType="Label">
@@ -36,8 +39,8 @@
     <Setter Property="TextColor" Value="White" />
     <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
     <Setter Property="CornerRadius" Value="18" />
-    <Setter Property="HeightRequest" Value="54" />
-    <Setter Property="Padding" Value="20,12" />
+    <Setter Property="MinimumHeightRequest" Value="54" />
+    <Setter Property="Padding" Value="20,13" />
   </Style>
   <Style x:Key="SecondaryButton" TargetType="Button">
     <Setter Property="TextColor" Value="{StaticResource Primary}" />

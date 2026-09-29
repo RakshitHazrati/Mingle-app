@@ -6,7 +6,11 @@ namespace MauiApp1.Pages;
 public partial class ContactsOnboardingPage : ContentPage
 {
     private readonly AppState _state = AppServices.Get<AppState>();
+    private readonly DeviceContactsReader _contactsReader = AppServices.Get<DeviceContactsReader>();
     private readonly List<DeviceContactCard> _deviceContacts = [];
+    private CancellationTokenSource? _loadCancellation;
+    private CancellationTokenSource? _searchCancellation;
+    private bool _isLoading;
 
     public ContactsOnboardingPage()
     {
@@ -15,6 +19,11 @@ public partial class ContactsOnboardingPage : ContentPage
 
     private async void OnLoadContactsClicked(object sender, EventArgs e)
     {
+        if (_isLoading)
+        {
+            return;
+        }
+
         try
         {
             var status = await Permissions.CheckStatusAsync<Permissions.ContactsRead>();
@@ -28,32 +37,37 @@ public partial class ContactsOnboardingPage : ContentPage
                 return;
             }
 
+            _isLoading = true;
+            _loadCancellation?.Cancel();
+            _loadCancellation?.Dispose();
+            _loadCancellation = new CancellationTokenSource();
+            var cancellationToken = _loadCancellation.Token;
+
             LoadContactsButton.IsEnabled = false;
-            LoadContactsButton.Text = "Reading contacts...";
-            var contacts = await Contacts.Default.GetAllAsync();
+            LoadContactsButton.Text = "Reading contacts…";
+            LoadingOverlay.IsVisible = true;
+            EmptyState.IsVisible = false;
+
+            var cards = await _contactsReader.ReadAsync(cancellationToken);
+
             _deviceContacts.Clear();
-            _deviceContacts.AddRange((contacts ?? [])
-                .SelectMany(contact => contact.Phones
-                    .Where(phone => !string.IsNullOrWhiteSpace(phone.PhoneNumber))
-                    .Select(phone => new DeviceContactCard
-                    {
-                        DisplayName = string.IsNullOrWhiteSpace(contact.DisplayName) ? "Unnamed contact" : contact.DisplayName,
-                        PhoneNumber = phone.PhoneNumber,
-                        Initials = GetInitials(contact.DisplayName)
-                    }))
-                .GroupBy(x => new string(x.PhoneNumber.Where(char.IsDigit).ToArray()))
-                .Where(x => x.Key.Length >= 8)
-                .Select(x => x.First())
-                .OrderBy(x => x.DisplayName)
-                .Take(1000));
+            _deviceContacts.AddRange(cards);
 
             ContactsList.ItemsSource = _deviceContacts;
             EmptyState.IsVisible = _deviceContacts.Count == 0;
             ContactsList.IsVisible = _deviceContacts.Count > 0;
+            ContactSearch.IsVisible = _deviceContacts.Count > 0;
+            ContactSummaryLabel.Text = _deviceContacts.Count == 0
+                ? "No contacts with a usable phone number were found."
+                : $"{_deviceContacts.Count:N0} contacts ready · choose only people you trust.";
             if (_deviceContacts.Count == 0)
             {
                 await DisplayAlert("No contacts found", "Add contacts to this device, then try again.", "OK");
             }
+        }
+        catch (OperationCanceledException)
+        {
+            // Leaving the page while a large address book is loading is expected.
         }
         catch (Exception ex)
         {
@@ -61,8 +75,39 @@ public partial class ContactsOnboardingPage : ContentPage
         }
         finally
         {
+            _isLoading = false;
+            LoadingOverlay.IsVisible = false;
             LoadContactsButton.IsEnabled = true;
             LoadContactsButton.Text = "Refresh contacts";
+        }
+    }
+
+    private async void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+    {
+        _searchCancellation?.Cancel();
+        _searchCancellation?.Dispose();
+        _searchCancellation = new CancellationTokenSource();
+        var cancellationToken = _searchCancellation.Token;
+
+        try
+        {
+            await Task.Delay(180, cancellationToken);
+            var query = e.NewTextValue?.Trim();
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                ContactsList.ItemsSource = _deviceContacts;
+                return;
+            }
+
+            var filtered = await Task.Run(() => _deviceContacts
+                .Where(contact => contact.DisplayName.Contains(query, StringComparison.CurrentCultureIgnoreCase)
+                    || contact.PhoneNumber.Contains(query, StringComparison.OrdinalIgnoreCase))
+                .ToList(), cancellationToken);
+            ContactsList.ItemsSource = filtered;
+        }
+        catch (OperationCanceledException)
+        {
+            // A newer search replaced this one.
         }
     }
 
@@ -112,10 +157,11 @@ public partial class ContactsOnboardingPage : ContentPage
 
     private void OnSkipClicked(object sender, EventArgs e) => ((App)Application.Current!).OpenDashboard();
 
-    private static string GetInitials(string? name)
+    protected override void OnDisappearing()
     {
-        var initials = string.Join("", (name ?? "")
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries).Take(2).Select(x => char.ToUpperInvariant(x[0])));
-        return string.IsNullOrWhiteSpace(initials) ? "?" : initials;
+        _loadCancellation?.Cancel();
+        _searchCancellation?.Cancel();
+        base.OnDisappearing();
     }
+
 }

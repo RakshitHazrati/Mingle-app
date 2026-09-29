@@ -18,6 +18,7 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton<AppState>();
+        builder.Services.AddSingleton<DeviceContactsReader>();
         var apiBaseUrl = typeof(MauiProgram).Assembly
             .GetCustomAttributes<AssemblyMetadataAttribute>()
             .Single(attribute => attribute.Key == "MingleApiBaseUrl")

@@ -10,8 +10,8 @@
     <Nullable>enable</Nullable>
     <ApplicationTitle>Mingle</ApplicationTitle>
     <ApplicationId>com.mingleorg.mingle</ApplicationId>
-    <ApplicationDisplayVersion>0.2.0</ApplicationDisplayVersion>
-    <ApplicationVersion>2</ApplicationVersion>
+    <ApplicationDisplayVersion>0.2.1</ApplicationDisplayVersion>
+    <ApplicationVersion>3</ApplicationVersion>
     <MingleApiBaseUrl Condition="'$(MingleApiBaseUrl)'=='' and '$(Configuration)'=='Debug'">http://10.0.2.2:5088/</MingleApiBaseUrl>
     <MingleApiBaseUrl Condition="'$(MingleApiBaseUrl)'=='' and '$(Configuration)'!='Debug'">https://replace-before-release.invalid/</MingleApiBaseUrl>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
